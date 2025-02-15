@@ -20,6 +20,10 @@ export async function someFunction(location) {
         const description = json.currentConditions.conditions
         const precipitation = json.currentConditions.preciptype
         const feelsLike = json.currentConditions.feelslike
+        const rainProb = json.currentConditions.precipprob
+        const windSpeed = json.currentConditions.windspeed
+        const airHum = json.currentConditions.humidity
+        const uvInd = json.currentConditions.uvindex
 
         const formattedDate = format(new Date(rawDate), "EEEE, MMMM do yyyy");
         const formattedTime = format(new Date(), "HH:mm");
@@ -32,7 +36,11 @@ export async function someFunction(location) {
             time: formattedTime,
             description,
             precipitation,
-            feelsLike
+            feelsLike,
+            rainProb,
+            windSpeed,
+            airHum,
+            uvInd
 
         }
 

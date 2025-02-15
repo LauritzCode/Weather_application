@@ -32,7 +32,7 @@ body {
 
 .left-inquiry {
     width: 600px;
-    height: 600px;
+    height: 700px;
     background: var(--bubble-dark);
     padding: 20px;
     border-radius: 10px;
@@ -44,10 +44,10 @@ body {
 }
 
 .right-inquiry {
+    display: flex;
     width: 600px;
-    background: var(--bubble-dark);
-    padding: 20px;
-    height: 600px;
+    height: 700px;
+    gap: 10px;
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
@@ -145,4 +145,44 @@ body {
 
 .extra-details p {
     font-size: 1rem;
+}
+
+.top-weather-details {
+    background: var(--bubble-dark);
+    height: 60%;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.weather-forecast-wrap {
+    background: var(--bubble-dark);
+    height: 40%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.weather-h3 {
+    color: rgba(255, 255, 255, 0.75)   
+}
+
+.weather-detail-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.single-detail-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 10px;
+}
+
+.detail-span {
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }

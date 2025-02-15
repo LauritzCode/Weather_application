@@ -10,7 +10,12 @@ export async function processWeatherDetails(location) {
         time: weatherData.time,
         percipitation: `${weatherData.percipitation}`,
         description: `${weatherData.description}`,
-        feelsLike: `Feels like ${weatherData.feelsLike}°C`
+        feelsLike: `Feels like ${weatherData.feelsLike}°C`,
+
+        rainProb: `${weatherData.rainProb}%`,
+        windSpeed: `${weatherData.windSpeed} Km/h`,
+        airHum: `${weatherData.airHum}%`,
+        uvInd: weatherData.uvInd
     }
 }
 
