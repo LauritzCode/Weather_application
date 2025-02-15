@@ -1,3 +1,9 @@
 import './styles/global.css';
+import { someFunction } from './modules/api';
+import { renderWeatherDisplay } from './modules/ui';
 
-console.log("Webpack works!")
+
+
+window.onload = renderWeatherDisplay
+someFunction("copenhagen")
+
