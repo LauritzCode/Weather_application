@@ -17,6 +17,7 @@ export async function someFunction(location) {
         const address = json.resolvedAddress
         const temp = json.currentConditions.temp
         const rawDate = json.days[0].datetime
+        const rawTime = json.currentConditions.datetime
         const description = json.currentConditions.conditions
         const precipitation = json.currentConditions.preciptype
         const feelsLike = json.currentConditions.feelslike
@@ -24,9 +25,45 @@ export async function someFunction(location) {
         const windSpeed = json.currentConditions.windspeed
         const airHum = json.currentConditions.humidity
         const uvInd = json.currentConditions.uvindex
-
+        const dateTimeString = `${rawDate}T${rawTime}`;
         const formattedDate = format(new Date(rawDate), "EEEE, MMMM do yyyy");
-        const formattedTime = format(new Date(), "HH:mm");
+        const formattedTime = format(new Date(dateTimeString), "HH:mm");
+
+        // 5-Day forecast: 
+
+        const fiveDays = [
+            {
+                day: "Mon",
+                description: json.days[0].conditions,
+                minTemp: json.days[0].tempmin,
+                maxTemp: json.days[0].tempmax
+            },
+            {
+                day: "Tue",
+                description: json.days[1].conditions,
+                minTemp: json.days[1].tempmin,
+                maxTemp: json.days[1].tempmax
+            },
+            {
+                day: "Wed",
+                description: json.days[2].conditions,
+                minTemp: json.days[2].tempmin,
+                maxTemp: json.days[2].tempmax
+            },
+            {
+                day: "Thu",
+                description: json.days[3].conditions,
+                minTemp: json.days[3].tempmin,
+                maxTemp: json.days[3].tempmax
+            },
+            {
+                day: "Fri",
+                description: json.days[4].conditions,
+                minTemp: json.days[4].tempmin,
+                maxTemp: json.days[4].tempmax
+            }
+        ];
+        
         
 
         return {
@@ -40,7 +77,8 @@ export async function someFunction(location) {
             rainProb,
             windSpeed,
             airHum,
-            uvInd
+            uvInd,
+            fiveDays
 
         }
 

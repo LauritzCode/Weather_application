@@ -1,6 +1,7 @@
 import { processWeatherDetails } from "./weather";
 
-export const renderWeatherDisplay = (container) => {
+
+export const renderWeatherDisplay = (weatherInfo = null) => {
 
     const content = document.querySelector(".content");
     const leftDiv = document.createElement("div");
@@ -12,22 +13,22 @@ export const renderWeatherDisplay = (container) => {
     leftDiv.innerHTML = `
   <div class="input-search">
       <form class="form">
+      <img class="logoimg" src="https://weatherwiseapp.vercel.app/images/icons/Logo.svg">
       <input id="searchInput" type="text" placeholder="Search Location">
-      <button id="searchBtn" type="submit">Search</button
       </form>
     </div>
       <div class="displayWeather">
       <div class="top-wrap-time">
       <div class="top-wrap">
-      <h1 id="displayLocation">London, City of London</h1>
-      <p id="currentTime">17:00</p></div>
-      <h2 id="dateDisplay">Saturday, February 15, 2025</h2></div>
+      <h1 id="displayLocation"></h1>
+      <p id="currentTime"></p></div>
+      <h2 id="dateDisplay"></h2></div>
       <div class="bottom-wrap">
-      <h3 id="currentTemp">6</h3>
+      <h3 id="currentTemp"></h3>
       <div class="extra-details">
-      <p id="feelsLike">Feels Like 4</p>
+      <p id="feelsLike"></p>
       <span>•</span>
-      <p id="description">Partially cloudy</p></div></div>
+      <p id="description"></p></div></div>
       </div>
     `
     rightDiv.innerHTML = `
@@ -38,37 +39,88 @@ export const renderWeatherDisplay = (container) => {
     <div class="single-detail-wrap">
     <div class="detail-span"><img src="https://weatherwiseapp.vercel.app/images/icons/Type=thermometer-simple-light.svg" alt="icon"></
     <span>Thermal Sensation</span></div>
-    <span id="thermalSensation">17 C</span>
+    <span id="thermalSensation"></span>
     </div>
 
     <div class="single-detail-wrap">
     <div class="detail-span"><img src="https://weatherwiseapp.vercel.app/images/icons/Type=cloud-rain-light.svg" alt="icon"></
     <span>Rain Probability</span></div>
-    <span id="rainProb">17 C</span>
+    <span id="rainProb"></span>
     </div>
 
     <div class="single-detail-wrap">
     <div class="detail-span"><img src="https://weatherwiseapp.vercel.app/images/icons/Type=wind-light.svg" alt="icon"></
     <span>Wind Speed</span></div>
-    <span id="windSpeed">17 C</span>
+    <span id="windSpeed"></span>
     </div>
 
     <div class="single-detail-wrap">
     <div class="detail-span"><img src="https://weatherwiseapp.vercel.app/images/icons/Type=drop-light.svg" alt="icon"></
     <span>Air Humidity</span></div>
-    <span id="airHumid">17 C</span>
+    <span id="airHumid"></span>
     </div>
 
     <div class="single-detail-wrap">
     <div class="detail-span"><img src="https://weatherwiseapp.vercel.app/images/icons/Type=sun-dim-light.svg" alt="icon"></
     <span>UV Index</span></div>
-    <span id="uvIndex">17 C</span>
+    <span id="uvIndex"></span>
     </div>
     
 
     </div>
     </div>
-    <div class="weather-forecast-wrap"></div>
+
+
+    <div class="weather-forecast-wrap">
+      <span>Forecast for 5 days</span>
+      <div class="forecast-container">
+      <div class="day-card">
+        <span>Mon</span>
+        <img class="svg-img-card"src="https://weatherwiseapp.vercel.app/images/icons/Weather=Cloudy,%20Moment=Day.svg">
+        <p class="day-description" id="day-description-1"></p>
+        <div class="day-temps">
+        <span id="card-max-temp-1"></span>
+        <span id="card-min-temp-1"></span></div>
+       </div>
+
+      <div class="day-card">
+        <span>Tue</span>
+        <img class="svg-img-card"src="https://weatherwiseapp.vercel.app/images/icons/Weather=Cloudy,%20Moment=Day.svg">
+        <p class="day-description" id="day-description-2"></p>
+        <div class="day-temps">
+        <span id="card-max-temp-2"></span>
+        <span id="card-min-temp-2"></span></div>
+       </div>
+
+       <div class="day-card">
+        <span>Wed</span>
+        <img class="svg-img-card"src="https://weatherwiseapp.vercel.app/images/icons/Weather=Cloudy,%20Moment=Day.svg">
+        <p class="day-description" id="day-description-3"></p>
+        <div class="day-temps">
+        <span id="card-max-temp-3"></span>
+        <span id="card-min-temp-3"></span></div>
+       </div>
+
+       <div class="day-card">
+        <span>Thu</span>
+        <img class="svg-img-card"src="https://weatherwiseapp.vercel.app/images/icons/Weather=Cloudy,%20Moment=Day.svg">
+        <p class="day-description" id="day-description-4"></p>
+        <div class="day-temps">
+        <span id="card-max-temp-4"></span>
+        <span id="card-min-temp-4"></span></div>
+       </div>
+
+       <div class="day-card">
+        <span>Fri</span>
+        <img class="svg-img-card"src="https://weatherwiseapp.vercel.app/images/icons/Weather=Cloudy,%20Moment=Day.svg">
+        <p class="day-description" id="day-description-5"></p>
+        <div class="day-temps">
+        <span id="card-max-temp-5"></span>
+        <span id="card-min-temp-5"></span></div>
+       </div>
+
+      </div>
+    </div>
     `
 
     content.appendChild(leftDiv);
@@ -79,8 +131,8 @@ export const renderWeatherDisplay = (container) => {
 
     submit.addEventListener("submit", async (e) => {
         e.preventDefault();
- 
         const weatherInfo = await processWeatherDetails(input.value)
+        
         document.querySelector("#displayLocation").textContent = weatherInfo.address
         document.querySelector("#currentTemp").textContent = weatherInfo.temp
         document.querySelector("#dateDisplay").textContent = weatherInfo.date
@@ -95,8 +147,16 @@ export const renderWeatherDisplay = (container) => {
         document.querySelector("#windSpeed").textContent = weatherInfo.windSpeed
         document.querySelector("#airHumid").textContent = weatherInfo.airHum
         document.querySelector("#uvIndex").textContent = weatherInfo.uvInd
-        
+
+       weatherInfo.fiveDays.forEach((day, index) => {
+        document.querySelector(`#card-max-temp-${index + 1}`).textContent = day.maxTemp
+        document.querySelector(`#card-min-temp-${index + 1}`).textContent = day.minTemp
+        document.querySelector(`#day-description-${index + 1}`).textContent = day.description
+       })
+
+      
     })
 
-
+    
+  
 }

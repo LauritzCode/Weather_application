@@ -31,7 +31,7 @@ body {
 }
 
 .left-inquiry {
-    width: 600px;
+    width: 700px;
     height: 700px;
     background: var(--bubble-dark);
     padding: 20px;
@@ -45,7 +45,7 @@ body {
 
 .right-inquiry {
     display: flex;
-    width: 600px;
+    width: 700px;
     height: 700px;
     gap: 10px;
     border-radius: 10px;
@@ -55,12 +55,24 @@ body {
 }
 
 #searchInput {
-    background: var(--bubble-dark);
+    background: rgba(30,30,41,255);
     border: none;
     color: white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px 10px;
     width: 100%;
+}
+
+#searchInput:focus {
+    background: rgba(30,30,41,255); 
+}
+
+.logoimg {
+    width: 70px;
+    height: 60px;
+    background: rgba(30,30,41,255);
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .form {
@@ -91,7 +103,7 @@ body {
     padding: 20px;
 }
 .displayWeather {
-    background: rgba(38,155,180,255);
+    background: linear-gradient(7deg, rgba(2,2,31,1) 0%, rgba(25,78,161,1) 100%);
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -160,6 +172,7 @@ body {
     height: 40%;
     width: 100%;
     border-radius: 10px;
+    padding: 20px;
 }
 
 .weather-h3 {
@@ -185,4 +198,50 @@ body {
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+.forecast-container {
+    display: flex;
+    width: 100%;
+}
+
+.day-card {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 1px 26px -1px rgba(0,0,0,0.2);
+
+}
+
+.svg-img-card {
+    width: 100px;
+}
+
+.day-description {
+    font-size: .75rem;
+}
+
+.day-temps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7.5px;
+}
+
+.day-temps :first-child {
+    font-size: .85rem;
+}
+
+.day-temps :nth-child(2) {
+    font-size: .75rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.day-description {
+    font-size: 0.8rem;
+    text-align: center;
 }

@@ -3,6 +3,8 @@ import { someFunction } from "./api";
 export async function processWeatherDetails(location) {
     const weatherData = await someFunction(location)
 
+    
+
     return {
         address: `${weatherData.address}`,
         temp: `${weatherData.temp}°C`,
@@ -15,7 +17,13 @@ export async function processWeatherDetails(location) {
         rainProb: `${weatherData.rainProb}%`,
         windSpeed: `${weatherData.windSpeed} Km/h`,
         airHum: `${weatherData.airHum}%`,
-        uvInd: weatherData.uvInd
+        uvInd: weatherData.uvInd,
+        fiveDays: weatherData.fiveDays.map(day => ({
+            description: day.description,
+            maxTemp: `${day.maxTemp}°C`,
+            minTemp: `${day.minTemp}°C`
+        }))
+        
     }
 }
 
