@@ -56,9 +56,6 @@ This weather app is built as part of the Odin Project curriculum. It fetches cur
 
 - **On Page Load**: The app automatically displays weather data for Copenhagen.
 - **Search Functionality**: Type a location into the search field and submit to fetch and display new weather data.
-- **Dynamic Background**: The background color of the weather display updates based on the fetched weather condition and the local time of the location.
-
-> **Note:** While the background color updates work as expected, the SVG icons do not update dynamically at this time.
 
 ## API Information
 
