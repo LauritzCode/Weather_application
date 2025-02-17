@@ -8,9 +8,6 @@ This weather app is built as part of the Odin Project curriculum. It fetches cur
 
 - **API Data Fetching**: Retrieves weather data—including temperature, conditions, and a short-term forecast—from the Visual Crossing Weather API.
 - **Dynamic UI**: Displays key weather details such as location, temperature, date, time, and additional weather metrics.
-- **Background Color Adjustment**: Changes the background color of the main display based on:
-  - **Weather Condition** (sunny/clear vs. cloudy)
-  - **Time of Day** (day vs. night)
 - **Default Location**: Automatically loads weather data for Copenhagen on page load.
 - **Location Search**: Allows users to search for and display weather data for different locations.
 
@@ -59,7 +56,7 @@ This weather app is built as part of the Odin Project curriculum. It fetches cur
 
 ## API Information
 
-This project uses the **Visual Crossing Weather API**, which provides comprehensive weather data including:
+This project uses the **Visual Crossing Weather API**, which provides weather data including:
 - Resolved location names
 - Current conditions (temperature, humidity, wind speed, etc.)
 - A 5-day forecast
@@ -70,7 +67,6 @@ The API returns data in JSON format, which is then processed and displayed withi
 
 - **API Integration**: Gained hands-on experience in fetching and processing JSON data from a third-party API.
 - **DOM Manipulation**: Learned to update the UI dynamically based on asynchronous API responses.
-- **Conditional Styling**: Implemented logic to change UI elements (such as background color) based on real-time data.
 - **Debugging Asynchronous Code**: Improved skills in handling errors and debugging asynchronous JavaScript code.
 
 ## Project Context
