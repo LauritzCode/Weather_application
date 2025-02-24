@@ -3,6 +3,7 @@
 ## Description
 
 This weather app is built as part of the Odin Project curriculum. It fetches current weather data and a 5-day forecast from the [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api) and displays the information dynamically. The app also changes the background color of the weather display based on both weather conditions and the time of day.
+Visit here: https://lauritzcode.github.io/Weather_application/
 
 ## Features
 
